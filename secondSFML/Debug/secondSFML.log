@@ -1,0 +1,31 @@
+﻿  linked_list.cpp
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(7,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(8,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(14,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(15,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(50,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(92,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(94,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(139,31): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(140,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(144,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(145,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(160,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(161,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(162,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(172,31): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(173,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(184,46): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(184,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(185,88): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(188,50): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(188,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(189,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(200,31): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(201,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(209,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(210,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(211,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(315,63): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\linked_list.cpp(315,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  secondSFML.vcxproj -> C:\Users\dell\source\repos\secondSFML\Debug\secondSFML.exe
