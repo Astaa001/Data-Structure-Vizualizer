@@ -1,23 +1,10 @@
 #include "linked_list.h"
 #include <cmath>
-Node::Node()
-{
-	value = 0;
-	next = NULL;
-	circle.setScale(0.1, 0.1);
-	arrow.setScale(0, 0.1);
-}
-Node::Node(int val)
-{
-	value = val;
-	next = NULL;
-	circle.setScale(0.1, 0.1);
-	arrow.setScale(0, 0.1);
-}
+
 LinkedList::LinkedList()
 {
 	head = tail = inserted = deleted = appended = checked = NULL;
-	Size = 0 , shifting_rate = 0;
+	Size = 0, shifting_rate = 0;
 	found = -1;
 	normal_node.loadFromFile("normal.png");
 	yellow_node.loadFromFile("yellow.png");
@@ -47,7 +34,7 @@ void LinkedList::push(int val)
 		{
 			tail->next = appended;
 			tail->arrow.setTexture(arrow_texture);
-			tail->arrow.setPosition(50+(Size-1)*dist_between_nodes,310);
+			tail->arrow.setPosition(50 + (Size - 1) * dist_between_nodes, 310);
 			tail = appended;
 		}
 		if (tail == head)
@@ -90,7 +77,7 @@ void LinkedList::insert_at(int pos, int val)
 				temp->next = inserted;
 			}
 			inserted->circle.setPosition((1 + pos) * dist_between_nodes, 10);
-			inserted->arrow.setPosition(50+ inserted->circle.getPosition().x, inserted->circle.getPosition().y);
+			inserted->arrow.setPosition(50 + inserted->circle.getPosition().x, inserted->circle.getPosition().y);
 			inserted->num.setPosition((1 + pos) * dist_between_nodes, 10);
 			inserted->circle.setTexture(normal_node);
 			inserted->num.setFont(num_font);
@@ -125,7 +112,7 @@ void LinkedList::delete_at(int pos)
 }
 void LinkedList::find(int target)
 {
-	if (inserted == NULL && deleted == NULL && appended == NULL && found==-1)
+	if (inserted == NULL && deleted == NULL && appended == NULL && found == -1)
 	{
 		found = target;
 		checked = head;
@@ -152,8 +139,8 @@ void LinkedList::push_annimation()
 void LinkedList::insert_annimation()
 {
 	Node* temp = inserted->next;
-	
-	
+
+
 	shifting_rate += 0.8;
 	while (temp != NULL && shifting_rate < dist_between_nodes)
 	{
@@ -287,7 +274,7 @@ void LinkedList::find_annimation()
 
 void LinkedList::draw_N_move(RenderWindow& window)
 {
-	
+
 	if (found != -1)
 		find_annimation();
 
@@ -297,27 +284,66 @@ void LinkedList::draw_N_move(RenderWindow& window)
 
 	if (deleted != NULL)
 		delete_annimation();
-	
+
 
 	if (appended != NULL)
 		push_annimation();
-	
-	
+
+
 
 	Node* temp = head;
 	while (temp != NULL)
 	{
 		window.draw(temp->circle);
 		window.draw(temp->num);
-		if (temp != tail )
+		if (temp != tail)
 		{
-			if (temp->arrow.getScale().x < 0.1 && appended== NULL)
+			if (temp->arrow.getScale().x < 0.1 && appended == NULL)
 				temp->arrow.setScale(temp->arrow.getScale().x + 0.001, 0.1);
 			window.draw(temp->arrow);
 		}
-		
-		
+
+
 		temp = temp->next;
 	}
 }
+void LinkedList::Show() {
+	LinkedList list;
+	RenderWindow Listwindow(VideoMode(1366, 768), "LinkedListWindow");
+	while (Listwindow.isOpen())
+	{
+		Event event;
+		while (Listwindow.pollEvent(event))
+		{
+			if (event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Key::Home)) {
+				Listwindow.close();
+				MainMenu Menu;
+				Menu.Show();
+			}
 
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Enter))
+			{
+				list.push(3);
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Key::I))
+			{
+				list.insert_at(5, 1);
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Space))
+			{
+				list.delete_at(0);
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Key::F))
+			{
+				list.find(1);
+			}
+
+
+
+
+		}
+		Listwindow.clear();
+		list.draw_N_move(Listwindow);
+		Listwindow.display();
+	}
+}

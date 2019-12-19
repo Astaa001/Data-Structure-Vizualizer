@@ -1,19 +1,11 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
 #include<string>
+#include"Node.h"
+#include "MainMenu.h"
 using namespace sf;
 using namespace std;
-class Node
-{
-public:
-	int value;
-	Node* next;
-	Sprite circle;
-	Sprite arrow;
-	Text num;
-	Node();
-	Node(int val);
-};
+
 class LinkedList
 {
 private:
@@ -27,7 +19,7 @@ private:
 	int found;
 	int Size;
 	double shifting_rate;
-	Texture normal_node, red_node , yellow_node , green_node, arrow_texture;
+	Texture normal_node, red_node, yellow_node, green_node, arrow_texture;
 	Font num_font;
 	Clock timer;
 	const double PI = 3.14159265359;
@@ -44,5 +36,6 @@ public:
 	void insert_annimation();
 	void delete_annimation();
 	void find_annimation();
+	void Show();
 
 };

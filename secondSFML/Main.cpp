@@ -1,42 +1,50 @@
 #include<SFML/Graphics.hpp>
 #include<iostream>
 #include"linked_list.h"
-#include<iostream>
-#include<SFML/Graphics.hpp>
-
+#include"Queue.h"
+#include"STACK.h"
+#include"MainMenu.h"
 using namespace std;
 using namespace sf;
 int main()
 {
-	LinkedList l;
-	RenderWindow window(VideoMode(1366, 780), "Visualizer");
+	MainMenu Menu;
+	Menu.Show();
+	
+	// test Code Use it When you Need it 
+	/*sf::RenderWindow window(sf::VideoMode(1366, 768), "SFML works!");
+	sf::CircleShape shape(20.f);
+	shape.setFillColor(sf::Color::Green);
+
 	while (window.isOpen())
 	{
-		Event event;
+		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == Event::Closed || Keyboard::isKeyPressed(Keyboard::Key::Escape) )
+			if (event.type == sf::Event::Closed)
 				window.close();
-			else if (Keyboard::isKeyPressed(Keyboard::Key::Enter))
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Up))
 			{
-				l.push(3);
+				shape.move(0, -10);
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Key::I) )
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Down))
 			{
-				l.insert_at(5,1);
+				shape.move(0, 10);
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Key::D) )
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Left))
 			{
-				l.delete_at(0);
+				shape.move(-10, 0);
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Key::S))
+			else if (Keyboard::isKeyPressed(Keyboard::Key::Right))
 			{
-				l.find(1);
+				shape.move(10, 0);
 			}
+			cout << shape.getPosition().x << " " << shape.getPosition().y << endl;
 		}
+
 		window.clear();
-		l.draw_N_move(window);
+		window.draw(shape);
 		window.display();
-	}
+	}*/
 }
 
