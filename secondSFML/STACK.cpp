@@ -8,8 +8,10 @@ STACK::STACK()
 	head = tail = NULL;
 	count = 0;
 	position = 560;
+	speed = 0.2;
 	node_texture_0.loadFromFile("rounded-rectangle-orange.png");
 	node_texture_1.loadFromFile("rounded-rectangle-green.png");
+	num_font.loadFromFile("Crasns.ttf");
 }
 void STACK::push_draw(RenderWindow& window)
 {
@@ -17,12 +19,14 @@ void STACK::push_draw(RenderWindow& window)
 	while (temp!=nullptr)
 	{
 		window.draw(temp->rectangle);
+		window.draw(temp->num);
 		temp = temp->next;
 	}
 	temp = tail;
 	if (temp != NULL && temp->rectangle.getPosition().y > position_last_node())
 	{
-		temp->rectangle.move(0, -0.2);
+		temp->rectangle.move(0, -speed);
+		temp->num.move(0, -speed);
 	}
 	else if(temp != NULL)
 	{
@@ -33,6 +37,7 @@ void STACK::push(int val)
 {
 
 	Node* node = new Node(val);
+	node->num.setString(to_string(val));
 	if (head == NULL)
 	{
 		head = tail = node;
@@ -46,7 +51,9 @@ void STACK::push(int val)
 	}
 
 	tail->rectangle.setPosition(800,position+90);
+	tail->num.setPosition(850, position + 130);
 	tail->rectangle.setTexture(node_texture_0);
+	tail->num.setFont(num_font);
 	count++;
 
 }
@@ -71,7 +78,8 @@ void STACK::pop_draw(RenderWindow & window)
 		tail->rectangle.setTexture(node_texture_0);
 		if (tail->rectangle.getPosition().y < position_last_node())
 		{
-			tail->rectangle.move(0, 0.2);
+			tail->rectangle.move(0, speed);
+			tail->num.move(0, speed);
 		}
 		else
 		{
@@ -94,6 +102,32 @@ void STACK::Show() {
 	Texture background_texture;
 	background_texture.loadFromFile("StackBackground.jpg");
 	background.setTexture(background_texture);
+	bool ispressed = 0; Text UserText;
+	UserText.setCharacterSize(30); UserText.setFillColor(Color::White);
+	UserText.setFont(num_font); UserText.setStyle(Text::Underlined);
+	UserText.setPosition(300, 57);
+	// Push Button 
+	Sprite push_btn;
+	Texture push_btn_tex;
+	push_btn_tex.loadFromFile("button.png");
+	push_btn.setTexture(push_btn_tex);
+	push_btn.setPosition(400, 50);
+	push_btn.setScale(0.1, 0.1);
+	// Pop Button
+	Sprite pop_btn;
+	Texture pop_btn_tex;
+	pop_btn_tex.loadFromFile("button.png");
+	pop_btn.setTexture(pop_btn_tex);
+	pop_btn.setPosition(400, 100);
+	pop_btn.setScale(0.1, 0.1);
+	//InputTextbox saeed photoshop lel png
+	Sprite Textbox; Texture Textbox_texture;
+	Textbox_texture.loadFromFile("TextboxPic.png");
+	Textbox.setTexture(Textbox_texture);
+	Textbox.setPosition(250, 35);
+	Textbox.setScale(0.15, 0.18);
+
+	string UserInput; int FinalNumber=0;
 	Mouse cursor;
 	while (StackWindow.isOpen())
 	{
@@ -105,24 +139,52 @@ void STACK::Show() {
 				MainMenu Menu;
 				Menu.Show();
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Key::Enter) && clock.getElapsedTime().asMilliseconds() > 1200)
+			else if (ispressed)
 			{
+				if (event.type == Event::TextEntered) {
+					if (event.text.unicode > 47 && event.text.unicode < 58) {
+						UserInput += char(event.text.unicode);
+						UserText.setString(UserInput);
+					}
+				}
+				else if (Keyboard::isKeyPressed(Keyboard::BackSpace)) {
+					if (!UserInput.empty()) {
+						UserInput.erase(UserInput.size() - 1);
+						UserText.setString(UserInput);
+					}
 
-				stack.push(5);
-				clock.restart();
+				}
+				else if (Keyboard::isKeyPressed(Keyboard::Enter) && clock.getElapsedTime().asMilliseconds() > 1200) {
+					string curnum = UserText.getString();
+					if (!curnum.empty()) {
+						FinalNumber = stoi(curnum);
+						stack.push(FinalNumber);
+						UserInput = "";
+						UserText.setString(UserInput);
+						ispressed = 0;
+						clock.restart();
+					}
+				}
 			}
-			else if (Keyboard::isKeyPressed(Keyboard::Key::Space) && clock.getElapsedTime().asMilliseconds() > 1200)
+			// push
+			else if ((cursor.getPosition(StackWindow).x >= 403 && cursor.getPosition(StackWindow).x <= 477 && cursor.getPosition(StackWindow).y >= 52 && cursor.getPosition(StackWindow).y <= 83 && Mouse::isButtonPressed(Mouse::Left))) {
+				ispressed = 1;
+			}
+			// pop
+			else if ((cursor.getPosition(StackWindow).x >= 403 && cursor.getPosition(StackWindow).x <= 477 && cursor.getPosition(StackWindow).y >= 103 && cursor.getPosition(StackWindow).y <= 133 && Mouse::isButtonPressed(Mouse::Left) && clock.getElapsedTime().asMilliseconds() > 1200))//&& clock.getElapsedTime().asMilliseconds() > 1200)) {
 			{
 				stack.pop();
 				clock.restart();
 			}
-			else if (Mouse::isButtonPressed(Mouse::Left)) {
-				cout << cursor.getPosition(StackWindow).x << " " << cursor.getPosition(StackWindow).y << endl;
-			}
+			
 		}
 
 		StackWindow.clear();
 		StackWindow.draw(background);
+		StackWindow.draw(Textbox);
+		StackWindow.draw(UserText);
+		StackWindow.draw(push_btn);
+		StackWindow.draw(pop_btn);
 		stack.pop_draw(StackWindow);
 		stack.push_draw(StackWindow);
 		StackWindow.display();

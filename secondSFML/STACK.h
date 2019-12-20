@@ -13,8 +13,10 @@ private:
 	Node* tail;
 	int count;
 	int position;
+	double speed;
 	Texture node_texture_0;
 	Texture node_texture_1;
+	Font num_font;
 public:
 	STACK();
 	void push(int val);
