@@ -126,12 +126,14 @@ int Queue::Length() {
 }
 void Queue::Show() {
 	Queue queue; 
+	// Menu and background
 	RenderWindow QueueWindow(VideoMode(1366, 768), "QueueWindow");
 	Sprite background;
 	Texture background_texture;
 	background_texture.loadFromFile("QueueBackground-2.jpg");
 	background.setTexture(background_texture);
 	background.setScale(2.2, 2);
+
 	bool ispressed = 0; Text UserText; 
 	UserText.setCharacterSize(30); UserText.setFillColor(Color::White);
 	UserText.setFont(num_font); UserText.setStyle(Text::Underlined);

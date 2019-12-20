@@ -18,7 +18,7 @@ private:
 	Node* checked;
 	int found;
 	int Size;
-	double shifting_rate;
+	double shifting_rate,speed;
 	Texture normal_node, red_node, yellow_node, green_node, arrow_texture;
 	Font num_font;
 	Clock timer;
