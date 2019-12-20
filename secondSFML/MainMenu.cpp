@@ -81,7 +81,7 @@ void MainMenu::Show() {
 	backgroundwall.loadFromFile("FantasyLand.png");
 	Sprite Menuwall;
 	Menuwall.setTexture(backgroundwall);
-	//Menu choices
+	//Menu choices Animations
 	Sprite Choice, Choice2;
 	Texture choice;
 	if (!choice.loadFromFile("Untitled-1-Recovered.png"))
