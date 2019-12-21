@@ -1,0 +1,19 @@
+﻿  BST.cpp
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(331,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(331,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(335,81): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(335,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(347,74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(347,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(351,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(351,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(380,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(420,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(419,95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(424,105): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(424,64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(441,89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(441,53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(442,95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\dell\source\repos\secondSFML\secondSFML\BST.cpp(442,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  secondSFML.vcxproj -> C:\Users\dell\source\repos\secondSFML\Debug\secondSFML.exe
