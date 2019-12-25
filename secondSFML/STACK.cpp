@@ -102,21 +102,22 @@ void STACK::Show() {
 	Texture background_texture;
 	background_texture.loadFromFile("StackBackground.jpg");
 	background.setTexture(background_texture);
-	bool ispressed = 0; Text UserText;
+	bool ispressed = 0; 
+	Text UserText;
 	UserText.setCharacterSize(30); UserText.setFillColor(Color::White);
 	UserText.setFont(num_font); UserText.setStyle(Text::Underlined);
 	UserText.setPosition(300, 57);
 	// Push Button 
 	Sprite push_btn;
 	Texture push_btn_tex;
-	push_btn_tex.loadFromFile("button.png");
+	push_btn_tex.loadFromFile("PUSH.png");
 	push_btn.setTexture(push_btn_tex);
 	push_btn.setPosition(400, 50);
 	push_btn.setScale(0.1, 0.1);
 	// Pop Button
 	Sprite pop_btn;
 	Texture pop_btn_tex;
-	pop_btn_tex.loadFromFile("button.png");
+	pop_btn_tex.loadFromFile("Pop.png");
 	pop_btn.setTexture(pop_btn_tex);
 	pop_btn.setPosition(400, 100);
 	pop_btn.setScale(0.1, 0.1);

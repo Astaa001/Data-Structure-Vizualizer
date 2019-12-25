@@ -2,6 +2,7 @@
 #include"linked_list.h"
 #include"Queue.h"
 #include"STACK.h"
+#include"BST.h"
 using namespace std;
 using namespace sf;
 MainMenu::MainMenu() {
@@ -28,19 +29,19 @@ void MainMenu::SetMenuStatus() {
 		else if (i == 1) {
 			menu[i].setFillColor(Color::White);
 			menu[i].setString("Stack");
-			menu[i].setPosition(Vector2f(Width / 2.5, Height / (MAX_NUMBER_OF_ITEMS + 1) * 3.1));
+			menu[i].setPosition(Vector2f(Width / 2.25, Height / (MAX_NUMBER_OF_ITEMS + 1) * 3.1));
 
 		}
 		else if (i == 2)
 		{
 			menu[i].setFillColor(Color::White);
 			menu[i].setString("Queue");
-			menu[i].setPosition(Vector2f(Width / 2.4, Height / (MAX_NUMBER_OF_ITEMS + 1) * 3.75));
+			menu[i].setPosition(Vector2f(Width / 2.25, Height / (MAX_NUMBER_OF_ITEMS + 1) * 3.75));
 		}
-		else {
-			menu[3].setFillColor(Color::White);
-			menu[3].setString("AVL");
-			menu[3].setPosition(Vector2f(Width / 2.25, Height / (MAX_NUMBER_OF_ITEMS + 1) * 4.5));
+		else if (i==3) {
+			menu[i].setFillColor(Color::White);
+			menu[i].setString("AVL");
+			menu[i].setPosition(Vector2f(Width / 2.19, Height / (MAX_NUMBER_OF_ITEMS + 1) * 4.5));
 		}
 
 	}
@@ -75,13 +76,14 @@ int MainMenu::GetPressedItem() {
 
 void MainMenu::Show() {
 	
-	LinkedList list; Queue queue; STACK stack;
+	LinkedList list; Queue queue; STACK stack; BST AVL;
 	SetMenuStatus();
 	Texture backgroundwall;
-	backgroundwall.loadFromFile("FantasyLand.png");
+	backgroundwall.loadFromFile("VisualGo.jpg");
 	Sprite Menuwall;
 	Menuwall.setTexture(backgroundwall);
-	//Menu choices Animations
+	Menuwall.setScale(0.69, 0.69);
+	//Menu choices
 	Sprite Choice, Choice2;
 	Texture choice;
 	if (!choice.loadFromFile("Untitled-1-Recovered.png"))
@@ -141,8 +143,7 @@ void MainMenu::Show() {
 						break;
 					case 3:
 						(*MenuWindow).close();
-						//AVL.Show();
-						return;
+						AVL.Show();
 						break;
 					}
 

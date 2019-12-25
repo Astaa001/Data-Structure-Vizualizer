@@ -90,25 +90,30 @@ void LinkedList::insert_at(int pos, int val)
 
 void LinkedList::delete_at(int pos)
 {
-	if (inserted == NULL && deleted == NULL && appended == NULL)
-	{
+	if (pos < Size) {
+		if (inserted == NULL && deleted == NULL && appended == NULL)
+		{
 
-		Node* temp = head;
-		if (pos == 0)
-		{
-			deleted = head;
-		}
-		else
-		{
-			for (int i = 0; i < pos - 1; i++)
+			Node* temp = head;
+			if (pos == 0)
 			{
-				temp = temp->next;
+				deleted = head;
 			}
-			deleted = temp->next;
-			//temp->next = deleted->next;
+			else
+			{
+				for (int i = 0; i < pos - 1; i++)
+				{
+					temp = temp->next;
+				}
+				deleted = temp->next;
+				//temp->next = deleted->next;
 
+			}
+			Size--;
 		}
-		Size--;
+	}
+	else {
+		cout << "You Can't Delete in This Index" << endl;
 	}
 }
 void LinkedList::find(int target)
@@ -335,29 +340,29 @@ void LinkedList::Show() {
 	// Append Button 
 	Sprite Append_btn;
 	Texture Append_tex;
-	Append_tex.loadFromFile("button.png");
+	Append_tex.loadFromFile("PUSH.png");
 	Append_btn.setTexture(Append_tex);
 	Append_btn.setPosition(1200, 500);
 	Append_btn.setScale(0.1, 0.1);
 	// find Button
 	Sprite Find_btn;
 	Texture Find_tex;
-	Find_tex.loadFromFile("button.png");
+	Find_tex.loadFromFile("Find.png");
 	Find_btn.setTexture(Find_tex);
 	Find_btn.setPosition(1200, 550);
 	Find_btn.setScale(0.1, 0.1);
 	//insert button
 	Sprite insert_btn;
 	Texture insert_tex;
-	insert_tex.loadFromFile("button.png");
-	insert_btn.setTexture(Find_tex);
+	insert_tex.loadFromFile("InsertAt.png");
+	insert_btn.setTexture(insert_tex);
 	insert_btn.setPosition(450, 550);
 	insert_btn.setScale(0.1, 0.1);
 	//delete button
 	Sprite delete_btn;
 	Texture delete_tex;
-	delete_tex.loadFromFile("button.png");
-	delete_btn.setTexture(Find_tex);
+	delete_tex.loadFromFile("delete at.png");
+	delete_btn.setTexture(delete_tex);
 	delete_btn.setPosition(1200, 600);
 	delete_btn.setScale(0.1, 0.1);
 	//InputTextbox saeed photoshop lel png

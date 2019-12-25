@@ -137,18 +137,18 @@ void Queue::Show() {
 	bool ispressed = 0; Text UserText; 
 	UserText.setCharacterSize(30); UserText.setFillColor(Color::White);
 	UserText.setFont(num_font); UserText.setStyle(Text::Underlined);
-	UserText.setPosition(660, 35);
+	UserText.setPosition(660, 75);
 	// Push Button 
 	Sprite push_btn;
 	Texture push_btn_tex;
-	push_btn_tex.loadFromFile("button.png");
+	push_btn_tex.loadFromFile("enqueue.png");
 	push_btn.setTexture(push_btn_tex);
 	push_btn.setPosition(750,50);
 	push_btn.setScale(0.1,0.1);
 	// Pop Button
 	Sprite pop_btn;
 	Texture pop_btn_tex;
-	pop_btn_tex.loadFromFile("button.png");
+	pop_btn_tex.loadFromFile("Dequeue.png");
 	pop_btn.setTexture(pop_btn_tex);
 	pop_btn.setPosition(750, 100);
 	pop_btn.setScale(0.1, 0.1);
@@ -156,7 +156,7 @@ void Queue::Show() {
 	Sprite Textbox; Texture Textbox_texture;
 	Textbox_texture.loadFromFile("TextboxPic.png");
 	Textbox.setTexture(Textbox_texture);
-	Textbox.setPosition(610, 15);
+	Textbox.setPosition(610, 50);
 	Textbox.setScale(0.15, 0.18);
 
 	string UserInput; int FinalNumber;
