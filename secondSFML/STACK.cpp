@@ -68,7 +68,8 @@ void STACK::pop()
 	}
 	else
 	{
-		cout << "mathzrsh ya zareef" << endl;
+		assert(0);
+		cout << "Can't pop from an empty stack" << endl;
 	}
 }
 void STACK::pop_draw(RenderWindow & window)
