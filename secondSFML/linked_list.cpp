@@ -552,13 +552,7 @@ void LinkedList::Show() {
 			{
 				isInserted = 1;
 			}
-			/*else if (Mouse::isButtonPressed(Mouse::Left)) {
-				cout << cursor.getPosition(Listwindow).x << " " << cursor.getPosition(Listwindow).y << endl;
-			}*/
-			/*else if (Keyboard::isKeyPressed(Keyboard::Key::I))
-			{
-				list.insert_at(5, 1);
-			}*/
+			
 		
 
 		}
