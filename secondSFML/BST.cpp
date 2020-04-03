@@ -47,104 +47,6 @@ B_Node* BST::balance(B_Node* rt)
 	}
 	return rt;
 }
-/*B_Node* BST::findNode(int val)
-{
-	B_Node* tmp = root;
-	while ((tmp != NULL) && (tmp->value != val))
-		if (tmp->value > val)
-			tmp = tmp->left;
-		else
-			tmp = tmp->right;
-	return tmp;
-}
-B_Node* BST::findParent(int val)
-{
-	B_Node* a, * b;
-	a = root;
-	b = NULL;
-	while ((a != NULL) && (a->value != val))
-	{
-		b = a;
-		if (a->value > val)
-			a = a->left;
-		else
-			a = a->right;
-	}
-	return b;
-}
-B_Node* BST::findMin(B_Node* start)
-{
-	B_Node* minNode = start;
-	while (minNode->left != NULL)
-		minNode = minNode->left;
-	return minNode;
-}
-void BST::remove(int val)
-{
-	B_Node* n = findNode(val);
-	if (n==nullptr)
-	{
-		cout << "not found" << endl;
-		return;
-	}
-	if ((n->left == NULL) && (n->right == NULL)) //deleting a leaf node
-	{
-		if (n == root)
-			root = NULL;
-		else
-		{
-			B_Node* parent = findParent(val);
-			if (val < parent->value)
-				parent->left = NULL;
-			else
-				parent->right = NULL;
-		}
-		delete n;
-	}
-	else if ((n->left == NULL) && (n->right != NULL))
-	{
-		B_Node* parent = findParent(val);
-		if (n == root)
-			root = n->right;
-		else
-		{
-			if (val < parent->value)
-				parent->left = n->right;
-			else
-				parent->right = n->right;
-		}
-		delete n;
-	}
-	else if ((n->left != NULL) && (n->right == NULL))
-	{
-		B_Node* parent = findParent(val);
-		if (n == root)
-			root = n->left;
-		else
-		{
-			if (val < parent->value)
-				parent->left = n->left;
-			else
-				parent->right = n->left;
-		}
-		delete n;
-	}
-	else
-	{
-		B_Node* minNode = findMin(n->right);
-		B_Node* parent = findParent(minNode->value);
-		n->value = minNode->value;
-		n->num_text.setString(to_string(minNode->value));
-		n->circle.setPosition(minNode->circle.getPosition());
-		n->num_text.setPosition(minNode->num_text.getPosition());
-		if (parent == n)
-			parent->right = minNode->right;
-		else
-			parent->left = minNode->right;
-		delete minNode;
-	}
-
-}*/
 
 B_Node* BST::remove(B_Node* parent, B_Node* rt, int val)
 {
@@ -183,13 +85,6 @@ B_Node* BST::remove(B_Node* parent, B_Node* rt, int val)
 
 				if (rt == root)
 					root = rt->right;
-				/*else
-				{
-					if (val < parent->value)
-						parent->left = rt->right;
-					else
-						parent->right = rt->right;
-				}*/
 				B_Node* returning = rt->right;
 				delete rt;
 				return returning;
@@ -303,9 +198,6 @@ B_Node* BST::Insert(B_Node* rt, int val)
 		{
 			update_pos(root, 0.5, 1);
 			rt->left->circle.setPosition(1366 * rt->left->x, 780 * rt->left->y / 7);
-			//	rt->has_left_child = 1;
-			//	rt->line_left = drawArrow(rt->circle.getPosition().x, rt->circle.getPosition().y + 2 * 1.5,
-				//		rt->left->circle.getPosition().x + 2 * 1.5, rt->left->circle.getPosition().y + 3);
 			rt->left->num_text.setPosition(1366 * rt->left->x + 10, 780 * rt->left->y / 7 + 3);  //10
 			new_node_pos_updated = 1;
 			timer.restart();
@@ -319,9 +211,6 @@ B_Node* BST::Insert(B_Node* rt, int val)
 		{
 			update_pos(root, 0.5, 1);
 			rt->right->circle.setPosition(1366 * rt->right->x, 780 * rt->right->y / 7);
-			//rt->has_right_child = 1;
-			//rt->line_right = drawArrow(rt->circle.getPosition().x + 2 * 1.5, rt->circle.getPosition().y + 2 * 1.5,
-				//rt->right->circle.getPosition().x, rt->right->circle.getPosition().y + 3);
 			rt->right->num_text.setPosition(1366 * rt->right->x + 10, 780 * rt->right->y / 7 + 3);//10
 			new_node_pos_updated = 1;
 			timer.restart();
@@ -391,9 +280,7 @@ void BST::draw(RenderWindow& window, B_Node* start)
 		start->line_right = drawArrow(start->circle.getPosition().x, start->circle.getPosition().y,
 			start->right->circle.getPosition().x, start->right->circle.getPosition().y);
 	}
-	//start->circle.setPosition(1366 * start->x, 780 * start->y / 7);
-	//start->num_text.setPosition(1366 * start->x, 780 * start->y / 7);
-
+	
 	if (start->left != NULL)
 		window.draw(start->line_left);
 	if (start->right != NULL)
@@ -508,20 +395,6 @@ void BST::Show() {
 					isDeleted = 0;
 				}
 			}
-
-			/*if (Keyboard::isKeyPressed(Keyboard::Key::Enter) && clock.getElapsedTime().asMilliseconds() >= 500)
-			{
-				
-				avl.root = avl.Insert(avl.root, FinalNumber);
-				clock.restart();
-				avl.new_node_pos_updated = 0;
-			}
-			if (Keyboard::isKeyPressed(Keyboard::Key::Space) && clock.getElapsedTime().asMilliseconds() >= 500)
-			{
-				
-				avl.root = avl.remove(NULL, avl.root, 41);
-				clock.restart();
-			}*/
 			else if ((cursor.getPosition(window).x >= 1204 && cursor.getPosition(window).x <= 1276 && cursor.getPosition(window).y >= 88 && cursor.getPosition(window).y <= 117 && Mouse::isButtonPressed(Mouse::Left)))
 			{
 				isDeleted = 1;
