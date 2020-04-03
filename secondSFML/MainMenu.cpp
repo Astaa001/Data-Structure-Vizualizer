@@ -16,7 +16,7 @@ void MainMenu::SetMenuStatus() {
 	if (!font.loadFromFile("Chocolate Bar Demo.otf"))
 	{
 		// handle error
-		cout << "SHIIIIT" << endl;
+		cout << "Can't load File" << endl;
 	}
 	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
 	{
